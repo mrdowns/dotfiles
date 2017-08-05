@@ -49,4 +49,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " theme
 set termguicolors
-colorscheme crunchbang
+set background=dark
+set mouse=a
+if &term =~ '256color'
+	set t_ut=
+endif
+colorscheme gruvbox

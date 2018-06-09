@@ -12,4 +12,5 @@ Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
 Plug 'saalaa/ancient-colors.vim'
 Plug 'nightsense/vim-crunchbang'
+Plug 'morhetz/gruvbox'
 call plug#end()

@@ -1,64 +1,54 @@
-"<Your Name Here>
+" Vim plug plugins
+source $HOME/.vim/plug.vim
 
-" Setup stuff
-" ===========
+" line numbers
+set number
 
-" Use vim rather than vi settings
-set nocompatible
-
-
-" Plugins Setup
-" =============
-
-" Use a plugin manager like Vundle here
-
-" General Config
-" ==============
-
-"Set up your configuration here.  Some common options are below 
-"as examples
-
-set encoding=utf-8
-set number                      " Line numbers are nice
-set backspace=indent,eol,start  " Allow backspace in insert mode
-set history=1000                " Store lots of :cmdline history
-set showcmd                     " Show incomplete cmds down the bottom
-set hidden                      " Buffers can exist in the background
+set autoindent
+set smartindent
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
-
-
-
-" Indentation and Display
-" =======================
-
-" This sets us up to replace tabs with spaces and have 4 space width indentation
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
+set nolazyredraw
 set tabstop=2
-set expandtab
-set list listchars=tab:\ \ ,trail:·   " Display tabs and trailing spaces visually
-set nowrap                            " Don't wrap lines
+set shiftwidth=2
+set relativenumber
+set number
+set colorcolumn=80
 
+let mapleader = " "
+nnoremap <leader>w :w<cr><esc>
+nnoremap <leader><Bslash> :NERDTreeToggle<CR>
 
-" Custom keymappings
-" ===============
+" clear highlighting by using esc
+nnoremap <silent> <esc> :noh<cr><esc>
 
-"Add your own keymappings here
-nmap <silent> ,/ :nohlsearch<CR>
+" easier split navigation
+set splitbelow
+set splitright
+nnoremap <tab> <C-w>w
 
-" Plugin Options
-" ==============
+" Ctrl+P fuzzy file finder
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra' " r=nearest ancestor w/ .git/, a=directory of current file
+set wildignore+=*/node_modules/*,*/.git/*,*.so,*.swp,*.zip,*/vendor/* "ignore ignorable folders
 
-" Any plugin configuration should happen here
+" Neomake linter settings
+autocmd! BufWritePost,BufEnter * Neomake
+" call neomake#configure#automake('w')
 
-"Syntax Specific
-syntax on
+let g:neomake_verbose=3
+let g:neomake_logfile='/tmp/error.log'
 
-" Mostly syntax specific stuff should go in ftplugin files, 
-" but you can put some short autocommand ones here if you don't have many
+" powerline fonts for airline
+let g:airline_powerline_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" theme
+set termguicolors
+colorscheme crunchbang

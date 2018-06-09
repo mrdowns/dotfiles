@@ -1,7 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export PATH=~/.:$PATH
-export PATH=~/Library/Python/2.7/bin/aws:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=~/Library/Python/2.7/bin/:$PATH
+export PATH=~/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mdowns/.oh-my-zsh
@@ -85,6 +87,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dc="docker-compose"
 alias vim="nvim"
-alias bastion="ssh mdowns@34.207.66.147"
+
+source ~/.server-aliases
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias config='/usr/bin/git --git-dir=/Users/mdowns/.cfg/ --work-tree=/Users/mdowns'

@@ -11,6 +11,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'wincent/ferret'
 Plug 'tpope/vim-eunuch'
+" Plug 'dense-analysis/ale'
 
 " deoplete
 if has('nvim')

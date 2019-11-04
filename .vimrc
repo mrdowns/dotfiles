@@ -11,8 +11,8 @@ set smartcase
 set hlsearch
 set incsearch
 set nolazyredraw
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set relativenumber
 set number
@@ -30,6 +30,10 @@ let g:LanguageClient_serverCommands = {
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" let g:ale_linters = {
+"       \ 'javascript': ['eslint']
+"       \ }
 
 let mapleader = " "
 nnoremap <leader>w :w<cr><esc>

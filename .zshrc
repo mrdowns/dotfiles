@@ -96,6 +96,13 @@ alias dcud="docker-compose up -d"
 alias dcd="docker-compose down"
 source ~/.server-aliases
 
+git() {
+    unset -f git
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    git "$@"
+}
+
 nvm() {
     unset -f nvm
     export NVM_DIR=~/.nvm

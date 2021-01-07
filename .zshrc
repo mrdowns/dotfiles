@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export PATH=~/.:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=~/Library/Python/2.7/bin/:$PATH
+# export PATH=~/Library/Python/2.7/bin/:$PATH
 export PATH=~/bin:$PATH
 
 # Path to your oh-my-zsh installation.

@@ -69,6 +69,8 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+let g:coc_global_extensions = ['coc-json', 'coc-prettier', 'coc-tsserver']
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -110,7 +112,11 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-let g:coc_node_path = '/Users/mdowns/.nvm/versions/node/v10.16.0/bin/node'
+if has('mac')
+  let g:coc_node_path = '/Users/mdowns/.nvm/versions/node/v10.16.0/bin/node'
+elseif has('unix')
+  let g:coc_node_path = '/home/mdowns/.nvm/versions/node/v10.16.0/bin/node'
+endif
 
 nnoremap <leader>w :w<cr><esc>
 nnoremap <leader><Bslash> :NERDTreeToggle<CR>

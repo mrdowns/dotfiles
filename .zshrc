@@ -8,6 +8,9 @@ export PATH=~/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# for aws-fuzzy
+export AWS_DEFAULT_REGION=us-east-1
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -94,7 +97,6 @@ alias gmod="git merge origin/dev"
 alias grod="git rebase origin/dev"
 alias dcud="docker-compose up -d"
 alias dcd="docker-compose down"
-source ~/.server-aliases
 
 git() {
     unset -f git
@@ -124,8 +126,28 @@ npm() {
     npm "$@"
 }
 
+nvim () {
+    unset -f nvim
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvim "$@"
+}
+
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias config='/usr/bin/git --git-dir=/Users/mdowns/.cfg/ --work-tree=/Users/mdowns'
-export PATH="/usr/local/opt/php@7.0/bin:$PATH"
+
+# Mac/Linux specific settings
+if [ "$(uname 2> /dev/null)" != "Linux" ];
+then
+  alias config='/usr/bin/git --git-dir=/Users/mdowns/.cfg/ --work-tree=/Users/mdowns'
+  export PATH="/usr/local/opt/php@7.0/bin:$PATH"
+else
+  alias config='/usr/bin/git --git-dir=/home/mdowns/.cfg --work-tree=/home/mdowns'
+  alias docker="sudo docker"
+  alias docker-compose="sudo docker-compose"
+  export PATH="/usr/local/lib/python3.6:$PATH"
+  export PATH="/home/mdowns/.local/bin:$PATH"
+  export PATH="/home/mdowns/.nvm/versions/node/v10.22.0/bin:$PATH"
+  # export PATH="$NVM_DIR:$PATH"
+fi

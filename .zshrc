@@ -149,5 +149,4 @@ else
   export PATH="/usr/local/lib/python3.6:$PATH"
   export PATH="/home/mdowns/.local/bin:$PATH"
   export PATH="/home/mdowns/.nvm/versions/node/v10.22.0/bin:$PATH"
-  # export PATH="$NVM_DIR:$PATH"
 fi

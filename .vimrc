@@ -125,9 +125,12 @@ nnoremap <leader><Bslash> :NERDTreeToggle<CR>
 nnoremap <silent> <esc> :noh<cr><esc>
 
 " easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
-nnoremap <tab> <C-w>w
 
 " Ctrl+P fuzzy file finder
 let g:ctrlp_map = '<c-p>'
